@@ -2,6 +2,7 @@ package com.smit.rrf.autoconfigure;
 
 import com.smit.rrf.mapper.ModelMapperResourceMapper;
 import com.smit.rrf.mapper.ResourceMapper;
+import com.smit.rrf.registry.ResourceRegistry;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -17,5 +18,10 @@ public class RestResourceAutoConfiguration {
     @Bean
     public ResourceMapper resourceMapper(ModelMapper modelMapper) {
         return new ModelMapperResourceMapper(modelMapper);
+    }
+
+    @Bean
+    public ResourceRegistry resourceRegistry() {
+        return new ResourceRegistry();
     }
 }
