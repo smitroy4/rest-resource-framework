@@ -64,4 +64,5 @@ public class ResourceDefinition {
     public void setSearchable(boolean searchable) {
         this.searchable = searchable;
     }
+
 }
