@@ -1,5 +1,7 @@
 package com.smit.rrf.autoconfigure;
 
+import com.smit.rrf.bootstrap.factory.ResourceDefinitionFactory;
+import com.smit.rrf.bootstrap.scanner.ClassPathResourceScanner;
 import com.smit.rrf.config.RestResourceProperties;
 import com.smit.rrf.mapper.ModelMapperResourceMapper;
 import com.smit.rrf.mapper.ResourceMapper;
@@ -29,6 +31,16 @@ public class RestResourceAutoConfiguration {
     @Bean
     public RestResourceProperties restResourceProperties() {
         return new RestResourceProperties();
+    }
+
+    @Bean
+    public ClassPathResourceScanner classPathResourceScanner() {
+        return new ClassPathResourceScanner();
+    }
+
+    @Bean
+    public ResourceDefinitionFactory resourceDefinitionFactory() {
+        return new ResourceDefinitionFactory();
     }
 
 }

@@ -1,7 +1,7 @@
 package com.smit.rrf.autoconfigure.scanner;
 
 import com.smit.rrf.annotations.RestResource;
-import com.smit.rrf.metadata.ResourceMetadata;
+import com.smit.rrf.metadata.ResourceDefinition;
 import com.smit.rrf.registry.ResourceRegistry;
 import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.context.ApplicationContext;
@@ -45,17 +45,17 @@ public class ResourceScanner
             RestResource annotation =
                     clazz.getAnnotation(RestResource.class);
 
-            ResourceMetadata metadata =
-                    new ResourceMetadata(
-                            clazz,
-                            annotation.dto(),
-                            annotation.path(),
-                            annotation.pageable(),
-                            annotation.sortable(),
-                            annotation.searchable()
-                    );
+            ResourceDefinition definition =
+                    new ResourceDefinition();
 
-            registry.register(metadata);
+            definition.setEntityClass(clazz);
+            definition.setDtoClass(annotation.dto());
+            definition.setPath(annotation.path());
+            definition.setPageable(annotation.pageable());
+            definition.setSortable(annotation.sortable());
+            definition.setSearchable(annotation.searchable());
+
+            registry.register(definition);
         }
     }
 }

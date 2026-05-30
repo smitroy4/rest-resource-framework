@@ -1,6 +1,6 @@
 package com.smit.rrf.registry;
 
-import com.smit.rrf.metadata.ResourceMetadata;
+import com.smit.rrf.metadata.ResourceDefinition;
 
 import java.util.Collection;
 import java.util.Map;
@@ -8,18 +8,18 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ResourceRegistry {
 
-    private final Map<Class<?>, ResourceMetadata> resources =
+    private final Map<Class<?>, ResourceDefinition> resources =
             new ConcurrentHashMap<>();
 
-    public void register(ResourceMetadata metadata) {
+    public void register(ResourceDefinition metadata) {
         resources.put(metadata.getEntityClass(), metadata);
     }
 
-    public ResourceMetadata get(Class<?> entityClass) {
+    public ResourceDefinition get(Class<?> entityClass) {
         return resources.get(entityClass);
     }
 
-    public Collection<ResourceMetadata> getAll() {
+    public Collection<ResourceDefinition> getAll() {
         return resources.values();
     }
 }
