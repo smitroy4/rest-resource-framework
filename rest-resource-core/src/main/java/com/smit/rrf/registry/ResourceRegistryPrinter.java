@@ -10,8 +10,9 @@ public class ResourceRegistryPrinter {
         registry.getAll().forEach(resource -> {
 
             System.out.println(
-                    resource.getEntityClass().getSimpleName()
-                            + " -> "
+                    "Entity: "
+                            + resource.getEntityClass().getSimpleName()
+                            + " | Path: "
                             + resource.getPath()
             );
 

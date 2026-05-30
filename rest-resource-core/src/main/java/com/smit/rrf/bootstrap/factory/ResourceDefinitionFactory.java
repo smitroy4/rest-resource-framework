@@ -20,6 +20,13 @@ public class ResourceDefinitionFactory {
         definition.setSortable(annotation.sortable());
         definition.setSearchable(annotation.searchable());
 
+        if (annotation.path().isBlank()) {
+            throw new IllegalStateException(
+                    "@RestResource path cannot be empty for "
+                            + clazz.getSimpleName()
+            );
+        }
+
         return definition;
     }
 }
