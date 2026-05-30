@@ -1,5 +1,6 @@
 package com.smit.rrf.autoconfigure;
 
+import com.smit.rrf.config.RestResourceProperties;
 import com.smit.rrf.mapper.ModelMapperResourceMapper;
 import com.smit.rrf.mapper.ResourceMapper;
 import com.smit.rrf.registry.ResourceRegistry;
@@ -24,4 +25,10 @@ public class RestResourceAutoConfiguration {
     public ResourceRegistry resourceRegistry() {
         return new ResourceRegistry();
     }
+
+    @Bean
+    public RestResourceProperties restResourceProperties() {
+        return new RestResourceProperties();
+    }
+
 }
